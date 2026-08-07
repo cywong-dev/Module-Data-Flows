@@ -48,8 +48,8 @@ function render() {
   let table = document.getElementById("display");
   let rowsNumber = table.rows.length;
   //delete old table
-  for (let n = rowsNumber - 1; n > 0; n--) {
-    table.deleteRow(n);
+  while (table.rows.length > 1) {
+    table.deleteRow(1);
   }
   //insert updated row and cells
   let length = myLibrary.length;
