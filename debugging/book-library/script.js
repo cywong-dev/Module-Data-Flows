@@ -10,7 +10,7 @@ function populateStorage() {
     let book1 = new Book("Robison Crusoe", "Daniel Defoe", 252, true);
     let book2 = new Book("The Old Man and the Sea","Ernest Hemingway",127,true);
 
-// Changed by Chun Yan Wong
+
 // Date : 9/8/2026
 // Purpose : Fix the problem "2. Error in console when you try to add a book"
 // Change : replace Librarty with the correct variable myLibrary    
@@ -36,7 +36,6 @@ function submit() {
   } 
 
 
-  // Changed by Chun Yan Wong
   // Date : 9/8/2026
   // Purpose : Fix the problem "3. It uses the title name as the author name"
   // Change : replace the second title with author.value to fix the bug 
@@ -61,7 +60,6 @@ function render() {
     table.deleteRow(1);
   }
 
-  // Changed by Chun Yan Wong
   // Date : 9/8/2026
   // Purpose : Fix the problem "1. Website loads but doesn't show any books"
   // Change : Missing ) → script stops executing → nothing renders and add back the closing ) to fix it    
@@ -82,7 +80,6 @@ function render() {
     let changeBut = document.createElement("button");
     changeBut.className = "btn btn-success";
 
-    // Changed by Chun Yan Wong
     // Date : 9/8/2026
     // Purpose : Fix the problem "5. When I add a book that I say I've read - it saves the wrong answer"
     // Change : Correct the logic - if check == true, that means the book was read, so it should show Yes.
@@ -95,7 +92,6 @@ function render() {
 
     //add delete button to every row and render again
     let delButton = document.createElement("button");
-    // Changed by Chun Yan Wong
     // Date : 9/8/2026
     // Purpose : Fix the problem "4. Delete button is broken"
     // Change : Fix the incorrect nanmes "delBut" button and "clicks" event to the correct one "delButton" and "click" respectively     
