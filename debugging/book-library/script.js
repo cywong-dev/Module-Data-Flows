@@ -23,6 +23,26 @@ const author = document.getElementById("author");
 const pages = document.getElementById("pages");
 const check = document.getElementById("check");
 
+// Helper function to display messages to the user in the UI
+function displayStatusMessage(message, isError = false) {
+  const statusContainer = document.getElementById("status-message") || createStatusContainer();
+  statusContainer.textContent = message;
+  statusContainer.style.color = isError ? "red" : "black";
+}
+
+function createStatusContainer() {
+  const container = document.createElement("div");
+  container.id = "status-message";
+  container.style.padding = "1rem";
+  container.style.fontSize = "1.2rem";
+  container.style.textAlign = "center";
+  
+  // Prepend to body or main container
+  document.body.prepend(container);
+  return container;
+}
+
+
 //check the right input from forms and if its ok -> add the new book (object in array)
 //via Book function and start render function
 function submit() {
@@ -39,15 +59,15 @@ function submit() {
     authorValue === "" ||
     pagesValue === ""
   ) {
-    alert("Please fill all fields!");
+    displayStatusMessage("Please fill all fields!", true);
     return;
   }
 
   let book = new Book(titleValue, authorValue, pagesValue, check.checked);
 
-  mylibrary.push(book);
+  myLibrary.push(book);
   render();
-  }
+  
 }
 
 function Book(title, author, pages, check) {
@@ -101,7 +121,7 @@ function render() {
     delButton.className = "btn btn-warning";
     delButton.innerText = "Delete";
     delButton.addEventListener("click", () => {
-      alert(`You've deleted title: ${myLibrary[i].title}`);
+      displayStatusMessage(`You've deleted title: ${myLibrary[i].title}`,false);
       myLibrary.splice(i, 1);
       render();
     });
