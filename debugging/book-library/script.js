@@ -56,9 +56,7 @@ function render() {
   let table = document.getElementById("display");
   let rowsNumber = table.rows.length;
   //delete old table
-  while (table.rows.length > 1) {
-    table.deleteRow(1);
-  }
+  table.innerHTML = "";
 
   // Date : 9/8/2026
   // Purpose : Fix the problem "1. Website loads but doesn't show any books"
