@@ -7,7 +7,7 @@ window.addEventListener("load", function (e) {
 
 function populateStorage() {
   if (myLibrary.length == 0) {
-    let book1 = new Book("Robison Crusoe", "Daniel Defoe", "252", true);
+    let book1 = new Book("Robison Crusoe", "Daniel Defoe", 252, true);
     let book2 = new Book("The Old Man and the Sea","Ernest Hemingway",127,true);
 
 // Changed by Chun Yan Wong
