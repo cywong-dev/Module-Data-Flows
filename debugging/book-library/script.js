@@ -26,20 +26,25 @@ const check = document.getElementById("check");
 //check the right input from forms and if its ok -> add the new book (object in array)
 //via Book function and start render function
 function submit() {
-  if (
-    title.value.trim() === "" ||
-    pages.value.trim() === "" ||
-    author.value.trim() === ""
-  ) {
-    alert("Please fill all fields!");
-    return;
-  } 
-
 
   // Date : 9/8/2026
   // Purpose : Fix the problem "3. It uses the title name as the author name"
   // Change : replace the second title with author.value to fix the bug 
-  let book = new Book(title.value, author.value, pages.value, check.checked);
+  let titleValue = title.value.trim();
+  let authorValue = author.value.trim();
+  let pagesValue = pages.value.trim();
+ 
+  if (
+    titleValue === "" ||
+    authorValue === "" ||
+    pagesValue === ""
+  ) {
+    alert("Please fill all fields!");
+    return;
+  }
+
+  let book = new Book(titleValue, authorValue, pagesValue, check.checked);
+
   mylibrary.push(book);
   render();
   }
