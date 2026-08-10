@@ -83,6 +83,19 @@ function render() {
   //delete old table
   table.innerHTML = "";
 
+  let thead = document.createElement("thead");
+  thead.className = "thead-dark";
+  thead.innerHTML = `
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Number of Pages</th>
+      <th>Read</th>
+      <th></th>
+    </tr>
+  `;
+  table.appendChild(thead);
+
   // Date : 9/8/2026
   // Purpose : Fix the problem "1. Website loads but doesn't show any books"
   // Change : Missing ) → script stops executing → nothing renders and add back the closing ) to fix it    
