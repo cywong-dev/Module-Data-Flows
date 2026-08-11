@@ -3,6 +3,12 @@ const myLibrary = [];
 window.addEventListener("load", function (e) {
   populateStorage();
   render();
+
+  // Connect the form submit event listener
+  const formElement = document.getElementById("book-form");
+  if (formElement) {
+    formElement.addEventListener("submit", submit);
+  }  
 });
 
 function populateStorage() {
@@ -49,8 +55,12 @@ function createStatusContainer() {
 
 //check the right input from forms and if its ok -> add the new book (object in array)
 //via Book function and start render function
-function submit() {
-
+function submit(event) {
+  // Prevent form submission from reloading the page
+  if (event) {
+    event.preventDefault();
+  }
+  
   // Date : 9/8/2026
   // Purpose : Fix the problem "3. It uses the title name as the author name"
   // Change : replace the second title with author.value to fix the bug 
@@ -78,6 +88,17 @@ function submit() {
   let book = new Book(titleValue, authorValue, pagesValue, checkElement.checked);
 
   myLibrary.push(book);
+    // Clear inputs on successful submit
+  if (event && event.target) {
+    event.target.reset();
+  } else {
+    titleElement.value = "";
+    authorElement.value = "";
+    pagesElement.value = "";
+    checkElement.checked = false;
+  }
+
+  displayStatusMessage(`Added "${titleValue}" to your library!`, false);
   render();
   
 }
