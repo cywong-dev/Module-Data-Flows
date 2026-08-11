@@ -53,7 +53,9 @@ function submit() {
   let titleValue = titleElement.value.trim();
   let authorValue = authorElement.value.trim();
   let pagesValue = pagesElement.value.trim();
- 
+
+  displayStatusMessage("");
+  
   if (
     titleValue === "" ||
     authorValue === "" ||
@@ -63,6 +65,12 @@ function submit() {
     return;
   }
 
+  const positiveIntegerRegex = /^[1-9]\d*$/;
+  if (!positiveIntegerRegex.test(pagesValue)) {
+    displayStatusMessage("Pages must be a positive whole number!", true);
+    return;
+  }
+  
   let book = new Book(titleValue, authorValue, pagesValue, checkElement.checked);
 
   myLibrary.push(book);
