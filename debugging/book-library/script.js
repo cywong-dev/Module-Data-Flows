@@ -92,27 +92,16 @@ function Book(title, author, pages, check) {
 function render() {
   let table = document.getElementById("display");
 
-  //delete old table
-  table.innerHTML = "";
+  let tbodyElement = document.getElementById("tableBody");
 
-  let thead = document.createElement("thead");
-  thead.className = "thead-dark";
-  thead.innerHTML = `
-    <tr>
-      <th>Title</th>
-      <th>Author</th>
-      <th>Number of Pages</th>
-      <th>Read</th>
-      <th></th>
-    </tr>
-  `;
-  table.appendChild(thead);
+  // Clear existing rows inside tbody only
+  tbodyElement.innerHTML = "";
 
   // Date : 9/8/2026
   // Purpose : Fix the problem "1. Website loads but doesn't show any books"
   // Change : Missing ) → script stops executing → nothing renders and add back the closing ) to fix it    
   for (let i = 0; i < myLibrary.length; i++) {
-    let row = table.insertRow(-1);
+    let row = tbodyElement.insertRow(-1);
   
     let titleCell = row.insertCell(0);
     let authorCell = row.insertCell(1);
