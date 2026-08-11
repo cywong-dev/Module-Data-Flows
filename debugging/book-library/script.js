@@ -18,10 +18,10 @@ function populateStorage() {
   }
 }
 
-const title = document.getElementById("title");
-const author = document.getElementById("author");
-const pages = document.getElementById("pages");
-const check = document.getElementById("check");
+const titleElement = document.getElementById("title");
+const authorElement = document.getElementById("author");
+const pagesElement = document.getElementById("pages");
+const checkElement = document.getElementById("check");
 
 // Helper function to display messages to the user in the UI
 function displayStatusMessage(message, isError = false) {
@@ -50,9 +50,9 @@ function submit() {
   // Date : 9/8/2026
   // Purpose : Fix the problem "3. It uses the title name as the author name"
   // Change : replace the second title with author.value to fix the bug 
-  let titleValue = title.value.trim();
-  let authorValue = author.value.trim();
-  let pagesValue = pages.value.trim();
+  let titleValue = titleElement.value.trim();
+  let authorValue = authorElement.value.trim();
+  let pagesValue = pagesElement.value.trim();
  
   if (
     titleValue === "" ||
@@ -63,7 +63,7 @@ function submit() {
     return;
   }
 
-  let book = new Book(titleValue, authorValue, pagesValue, check.checked);
+  let book = new Book(titleValue, authorValue, pagesValue, checkElement.checked);
 
   myLibrary.push(book);
   render();
