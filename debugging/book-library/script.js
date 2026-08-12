@@ -24,6 +24,7 @@ function populateStorage() {
   }
 }
 
+const formElement = document.getElementById("book-form");
 const titleElement = document.getElementById("title");
 const authorElement = document.getElementById("author");
 const pagesElement = document.getElementById("pages");
@@ -89,15 +90,8 @@ function submit(event) {
 
   myLibrary.push(book);
     // Clear inputs on successful submit
-  if (event && event.target) {
-    event.target.reset();
-  } else {
-    titleElement.value = "";
-    authorElement.value = "";
-    pagesElement.value = "";
-    checkElement.checked = false;
-  }
-
+  formElement.reset();
+  
   displayStatusMessage(`Added "${titleValue}" to your library!`, false);
   render();
   
