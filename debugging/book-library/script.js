@@ -27,7 +27,7 @@ const pagesElement = document.getElementById("pages");
 const checkElement = document.getElementById("check");
 
 const submitBtn = document.getElementById("submitBtn");
-submitBtn.addEventListener("click", submit);
+
 
 
 // Helper function to display messages to the user in the UI
@@ -73,13 +73,17 @@ function submit(event) {
     return;
   }
 
-  const positiveIntegerRegex = /^[1-9]\d*$/;
-  if (!positiveIntegerRegex.test(pagesValue)) {
+
+// Convert to Number
+  const pagesNum = Number(pagesValue);
+
+  // Check if it's a valid positive integer
+  if (!Number.isInteger(pagesNum) || pagesNum <= 0) {
     displayStatusMessage("Pages must be a positive whole number!", true);
     return;
   }
   
-  let book = new Book(titleValue, authorValue, pagesValue, checkElement.checked);
+  let book = new Book(titleValue, authorValue, pagesNum, checkElement.checked);
 
   myLibrary.push(book);
     // Clear inputs on successful submit
