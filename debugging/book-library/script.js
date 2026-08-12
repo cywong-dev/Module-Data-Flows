@@ -15,11 +15,7 @@ function populateStorage() {
   if (myLibrary.length == 0) {
     let book1 = new Book("Robison Crusoe", "Daniel Defoe", 252, true);
     let book2 = new Book("The Old Man and the Sea","Ernest Hemingway",127,true);
-
-
-// Date : 9/8/2026
-// Purpose : Fix the problem "2. Error in console when you try to add a book"
-// Change : replace Librarty with the correct variable myLibrary    
+   
     myLibrary.push(book1, book2);
   }
 }
@@ -62,12 +58,9 @@ function submit(event) {
     event.preventDefault();
   }
   
-  // Date : 9/8/2026
-  // Purpose : Fix the problem "3. It uses the title name as the author name"
-  // Change : replace the second title with author.value to fix the bug 
-  let titleValue = titleElement.value.trim();
-  let authorValue = authorElement.value.trim();
-  let pagesValue = pagesElement.value.trim();
+  const titleValue = titleElement.value.trim();
+  const authorValue = authorElement.value.trim();
+  const pagesValue = pagesElement.value.trim();
 
   displayStatusMessage("");
   
@@ -112,9 +105,7 @@ function render() {
   // Clear existing rows inside tbody only
   tbodyElement.innerHTML = "";
 
-  // Date : 9/8/2026
-  // Purpose : Fix the problem "1. Website loads but doesn't show any books"
-  // Change : Missing ) → script stops executing → nothing renders and add back the closing ) to fix it    
+  
   for (let i = 0; i < myLibrary.length; i++) {
     let row = tbodyElement.insertRow(-1);
   
@@ -132,9 +123,7 @@ function render() {
     let changeBut = document.createElement("button");
     changeBut.className = "btn btn-success";
 
-    // Date : 9/8/2026
-    // Purpose : Fix the problem "5. When I add a book that I say I've read - it saves the wrong answer"
-    // Change : Correct the logic - if check == true, that means the book was read, so it should show Yes.
+
     changeBut.innerText = myLibrary[i].check ? "Yes" : "No";
     changeBut.addEventListener("click", () => {
       myLibrary[i].check = !myLibrary[i].check;
@@ -144,9 +133,6 @@ function render() {
 
     //add delete button to every row and render again
     let delButton = document.createElement("button");
-    // Date : 9/8/2026
-    // Purpose : Fix the problem "4. Delete button is broken"
-    // Change : Fix the incorrect nanmes "delBut" button and "clicks" event to the correct one "delButton" and "click" respectively     
     delButton.className = "btn btn-warning";
     delButton.innerText = "Delete";
     delButton.addEventListener("click", () => {
