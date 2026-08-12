@@ -26,7 +26,7 @@ const authorElement = document.getElementById("author");
 const pagesElement = document.getElementById("pages");
 const checkElement = document.getElementById("check");
 
-const submitBtn = document.getElementById("submitBtn");
+
 
 
 
